@@ -93,7 +93,7 @@ Navigation and working with backend endpoints are done through the folder and fi
 
 app Directory: Contains all the routes and pages of the application. Each route is represented by a folder containing a page.tsx or page.js file.
 
-Services Folder: For each feature, there is file in services folder inside the frontend project. This structure facilitates easy interaction with the backend by organizing API calls and business logic related to each feature.
+Services Folder: For each feature, there is a file in services folder inside the frontend project. This structure facilitates easy interaction with the backend by organizing API calls and business logic related to each feature.
 
 The hooks folder contains custom hooks to automate and simplify the interaction with libraries.
 
