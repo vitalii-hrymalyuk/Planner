@@ -1,0 +1,6 @@
+[submodule "planner-frontend"]
+	path = planner-frontend
+	url = https://github.com/yourusername/planner-frontend
+[submodule "planner-backend"]
+	path = planner-backend
+	url = https://github.com/yourusername/planner-backend
