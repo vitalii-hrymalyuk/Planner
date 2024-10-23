@@ -132,7 +132,7 @@ The backend server will be running at http://localhost:4200.
 2. Navigate to the project directory
 
 ```bash
-   cd planner-backend
+   cd planner-frontend
 ```
 
 3. Install dependencies:
