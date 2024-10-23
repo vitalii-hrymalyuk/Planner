@@ -1,142 +1,176 @@
-Planner App
+## Planner Application
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm install
-# then
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
----
-
-## About
-
-The Planner App is designed to help you manage your time effectively. It offers features like timeblocking, task management with both list and Kanban board views, and a customizable Pomodoro timer to boost your productivity.
-
-This is the basic functionality; let's look at each section in more detail.
+The Planner Application is a full-stack task management system designed to enhance productivity through an intuitive user interface and robust backend service. It includes a frontend built with Next.js for dynamic task management and a backend powered by NestJS for secure user authentication and efficient task handling. The application utilizes PostgreSQL for data storage and implements features like task categorization, Pomodoro timer, drag-and-drop scheduling, and much more.
 
 ---
 
 ## Features
 
-### Time Blocks
+### User Authentication (Backend)
 
-Plan your day by scheduling tasks with full CRUD (Create, Read, Update, Delete) operations.
-Dynamic Task Sizing: Task elements automatically adjust their size based on the duration of the task.
-Drag and Drop: Easily rearrange your schedule by dragging and dropping tasks.
+- Secure login and registration using JSON Web Tokens (JWT).
 
-### Tasks Management
+### Task Management
 
-List and Kanban Views: View your tasks in either a traditional list or a Kanban board for better visualization.
-Interactive Drag and Drop: Move tasks between different statuses or dates; the task's date updates automatically when moved.
-Efficient Organization: Categorize and prioritize tasks to enhance productivity.
+- Create, Read, Update, Delete (CRUD) tasks.
+
+- List view and Kanban view for task organization.
+
+- Categorize and prioritize tasks.
+
+### Time Blocks and Scheduling
+
+- Dynamic task sizing for better visual clarity based on duration.
+
+- Drag-and-drop functionality for easy task rearrangement.
+
+- Task management through list or Kanban views with interactive updates.
 
 ### Pomodoro Timer
 
-Customizable Sessions: Set custom rounds and session lengths to fit your work style.
-Productivity Booster: Utilize the Pomodoro Technique to maintain focus and manage breaks effectively.
-User-Friendly Interface: Easy-to-use timer controls for starting, pausing, and resetting sessions.
+- Customizable work and break sessions for enhanced focus.
+
+- Simple user interface for managing Pomodoro cycles.
 
 ---
 
 ## Technology Stack
 
-The main infrastructure of the application is built using modern technologies for both frontend and backend development.
+### Backend
 
-A complete list of the entire technology stack is given below:
+- **[NestJS](https://docs.nestjs.com/)**: A progressive Node.js framework for building efficient server-side applications.
 
-## Backend
+- **[TypeScript](https://www.typescriptlang.org/docs/)**: A strongly typed programming language that builds on JavaScript.
 
-- **[NestJS](https://docs.nestjs.com/)**
-- **[Prisma](https://www.prisma.io/docs/getting-started)**
-- **[PostgreSQL](https://www.postgresql.org/docs/)**
+- **[Prisma](https://www.prisma.io/docs/getting-started)**: Next-generation ORM for Node.js and TypeScript.
 
-# Frontend
+- **[PostgreSQL](https://www.postgresql.org/docs/)**: An advanced open-source relational database.
 
-- **[NextJS 14](https://nextjs.org/docs)**
-- **[TanStack Query (React Query)](https://tanstack.com/query/v5/docs/react/overview)**
-- **[React Hook Form](https://react-hook-form.com/get-started)**
-- **[Tailwind CSS](https://tailwindcss.com/docs/installation)**
+- **[NestJS JWT](https://docs.nestjs.com/security/authentication)**: An open standard for secure data transmission.
 
----
+### Frontend
 
-## ORM
+- **[Next.js](https://nextjs.org/docs)**: Next.js is a powerful web development framework that simplifies the process of building fast, interactive applications.
 
-Prisma is used as the ORM (Object-Relational Mapping) technology for database querying.
+- **[TypeScript](https://www.typescriptlang.org/docs/)**: A strongly typed programming language that builds on JavaScript.
 
-In conjunction with the VS Code extension, it allows you to conveniently compose models, generate a database object, and provides a convenient API for working with the database.
+- **[TanStack React Query](https://tanstack.com/query/v5/docs/react/overview)**: A powerful data-fetching and state management library for managing server-state in React applications, improving performance and developer experience.
 
-Prisma also provides a handy Prisma Studio (npx prisma studio) that allows direct interaction with the database and supports all CRUD operations.
+- **[React Hook Form](https://react-hook-form.com/get-started)**: A library for building and managing forms, providing easy validation and high-performance handling of form inputs.
 
-## Database
-
-A PostgreSQL database is used to store all the application information.
-
-## Working with Data
-
-The application works with data using React Query for efficient data fetching and caching, and React Hook Form for form state management and validation.
+- **[Tailwind CSS](https://tailwindcss.com/docs/installation)**: A utility-first CSS framework for rapidly building custom, responsive designs with minimal effort.
 
 ---
 
-## Environment
+## Prerequisites
 
-The application infrastructure is built based on the requirements of the Next.js framework, utilizing the app directory introduced in Next.js 14 for routing and server components.
+Before you begin, ensure you have the following installed:
 
-Navigation and working with backend endpoints are done through the folder and file structure.
-
-app Directory: Contains all the routes and pages of the application. Each route is represented by a folder containing a page.tsx or page.js file.
-
-Services Folder: For each feature, there is a file in services folder inside the frontend project. This structure facilitates easy interaction with the backend by organizing API calls and business logic related to each feature.
-
-The hooks folder contains custom hooks to automate and simplify the interaction with libraries.
-
-The components folder contains all the components of the application. Where possible, they have been divided into appropriate categories to summarize the functionality.
-
-The UI components are styled using Tailwind CSS for rapid UI development.
+- Node.js (v14 or higher)
+- npm or yarn
+- PostgreSQL: v12 or higher
 
 ---
 
-## Working with Forms
+## Installation and Setup
 
-Although the application is not large, it contains a few forms. During development, React Hook Form was used to simplify form state management and validation.
+### Backend
 
----
+1. Clone the backend repository
 
-## State Management and Data Fetching
+```bash
+   git clone https://github.com/vitalii-hrymalyuk/planner-backend.git
+```
 
-React Query: Manages server state, caching, and data synchronization.
+2. Navigate to the project directory
 
-React Hook Form: Simplifies form state management and validation.
+```bash
+   cd planner-backend
+```
 
----
+3. Install dependencies:
 
-## Styling
+```bash
+   # Using npm
+   npm install
 
-Tailwind CSS: A utility-first CSS framework for quickly building custom designs.
+   # Or using yarn
+   yarn install
+```
 
----
+4. Create an .env file in root folder
+5. Set up environment variables by adding the following to your `.env` file:
 
-## Environment Variables
+   ```env
+   DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+   JWT_SECRET="your_jwt_secret"
 
-To run this project, you will need to add the following environment variables to your .env file:
+   ```
 
-```js
-DATABASE_URL= /* URL for connection to database, ex: DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/DB_NAME?schema=public" */
-JWT_SECRET = /* Token that is used authorization, ex:  JWT_SECRET="WoklJpTfu392VUqLIG0OyJpkaKrs7UB4" */
+6. Run database migrations:
+
+```bash
+   npx prisma migrate dev --name init
+```
+
+7. Start the backend server:
+
+```bash
+   npm run start:dev
+```
+
+The backend server will be running at http://localhost:4200.
+
+### Frontend
+
+1. Clone the frontend repository
+
+```bash
+   git clone https://github.com/vitalii-hrymalyuk/planner-frontend.git
+```
+
+2. Navigate to the project directory
+
+```bash
+   cd planner-backend
+```
+
+3. Install dependencies:
+
+```bash
+   # Using npm
+   npm install
+
+   # Or using yarn
+   yarn install
+```
+
+4. Start the frontend development server:
+
+```bash
+   npm run dev
 
 ```
 
+The frontend will be accessible at http://localhost:3000.
+
 ---
 
-## Notes
+## Contributing
 
-The application is designed with scalability and maintainability in mind.
-The use of the app directory in Next.js 14 enhances the routing capabilities and simplifies server component integration.
-The inclusion of a services folder which contains files for each feature in the frontend project facilitates modular and organized interaction with the backend services.
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Contact Information
+
+- **Author**: Vitalii Hrymalyuk
+- **Email**: [vitalii.hrymalyuk@gmail.com](mailto:vitalii.hrymalyuk@gmail.com)
+
+Feel free to reach out if you have any questions or need assistance setting up the project.
